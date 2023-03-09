@@ -91,14 +91,14 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @GetMapping("admin/edit/{id}")
+    @RequestMapping("admin/edit/{id}")
     public String showUserProfileModal(@PathVariable("id") int id, Model model) {
         model.addAttribute("allRoles", service.getRoles());
         model.addAttribute("user", service.getUserById(id));
         return "fragments/edit_form";
     }
 
-    @GetMapping("admin/pre_delete/{id}")
+    @RequestMapping("admin/pre_delete/{id}")
     public String showUserDelete(@PathVariable("id") int id, Model model) {
         model.addAttribute("allRoles", service.getRoles());
         model.addAttribute("user", service.getUserById(id));
